@@ -86,11 +86,12 @@ class WizzairRegistration(unittest.TestCase):
 
         ### TEST ###
         error_notices = self.driver.find_elements_by_xpath('//span[@class="rf-input__error__message"]/span')
-        visible_erros_notices = []
+        visible_error_notices = []
         for error in error_notices:
             if error.is_displayed():
                 visible_error_notices.append(error)
-        assert len(visible_error_notices) ==1
+
+        len(visible_error_notices) ==1
         error_text = visible_error_notices[0].get_attribute("innerText")
         print "\n" + error_text
         self.assertEqual(error_text, u"Nieprawidłowy adres e-mail")
